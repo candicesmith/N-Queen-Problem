@@ -19,9 +19,9 @@ vector<__int8> startState(int n) { // creates empty board
 vector<__int8> generateBoard(const int n) { // generates a board with random configuration of queens
     vector<__int8> board;
 
-    std::random_device device;
-    std::mt19937 generator(device());
-    std::uniform_int_distribution<int> distribution(0, n - 1);
+    random_device device;
+    mt19937 generator(device());
+    uniform_int_distribution<int> distribution(0, n - 1);
 
     for (int j = 0; j < n; j++) {
         board.push_back(distribution(generator));
@@ -328,10 +328,10 @@ void simulatedAnnealing(const int n, list<vector<__int8>>& q)
     chrono::time_point<chrono::system_clock> start, end;
     start = chrono::system_clock::now();
 
-    std::random_device device;
-    std::mt19937 generator(device());
-    std::uniform_real_distribution<double> distribution(0.0, 100.0);
-    std::uniform_int_distribution<int> queen(0, n - 1);
+    random_device device;
+    mt19937 generator(device());
+    uniform_real_distribution<double> distribution(0.0, 100.0);
+    uniform_int_distribution<int> queen(0, n - 1);
 
     if (n == 2 || n == 3) { // no solutions exist for 2 and 3 
         end = std::chrono::system_clock::now();
